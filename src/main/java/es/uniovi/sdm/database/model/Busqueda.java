@@ -28,7 +28,7 @@ public class Busqueda {
 	private Cerveza cerveza;
 
 	@Temporal(TemporalType.TIME)
-	@Column(name="fecha_ultima_busqueda")
+	@Column(name="fechaultimabusqueda")
 	private Date fechaUltimaBusqueda;
 
 	Busqueda() {
