@@ -19,7 +19,6 @@ import es.uniovi.sdm.infrastructure.ErrorFactory.Errors;
 import es.uniovi.sdm.infrastructure.MyLogger;
 import es.uniovi.sdm.web_service.requests.HistorialFindRequest;
 import es.uniovi.sdm.web_service.responses.correcto.HistorialResponse;
-import es.uniovi.sdm.web_service.responses.correcto.UsuarioResponse;
 import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
 @RestController
@@ -46,7 +45,7 @@ public class BusquedaController {
 	 */
 	@RequestMapping(value = "/historial", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
 			"application/json" })
-	public ResponseEntity<UsuarioResponse> buscarHistorial(@RequestBody(required = true) HistorialFindRequest busqueda)
+	public ResponseEntity<HistorialResponse> buscarHistorial(@RequestBody(required = true) HistorialFindRequest busqueda)
 			throws ErrorDePeticionException {
 
 		MyLogger.debug("Peticion de busqueda del historial de un usuario --> login = '" + busqueda.getLogin() + "'");
@@ -71,7 +70,7 @@ public class BusquedaController {
 		// (3) Devolver el historial
 		// ==========================
 
-		return new ResponseEntity<UsuarioResponse>(new HistorialResponse(historial), HttpStatus.OK);
+		return new ResponseEntity<HistorialResponse>(new HistorialResponse(historial), HttpStatus.OK);
 	}
 
 }
