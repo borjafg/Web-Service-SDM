@@ -5,7 +5,7 @@ import java.util.List;
 
 import es.uniovi.sdm.database.model.Cerveza;
 
-public class HistorialResponse extends UsuarioResponse {
+public class HistorialResponse {
 
 	private List<CervezaResponse> historial;
 
