@@ -16,7 +16,7 @@ public interface BusquedaRepository extends JpaRepository<Busqueda, BusquedaKey>
 
 	public List<Busqueda> findByUsuario(Usuario usuario);
 
-	@Query("select b.cerveza.estilo from Busqueda b where b.usuario = :usuario group by b.cerveza.estilo order by sum(b.cerveza.estilo) DESC")
+	@Query("select b.cerveza.estilo from Busqueda b where b.usuario = :usuario group by b.cerveza.estilo order by count(b.cerveza.estilo) DESC")
 	public List<String> findEstilosCervezaBuscados(@Param(value = "usuario") Usuario usuario);
 
 	@Query("select c from Cerveza c where c.estilo = :estilo and c not in (select b.cerveza from Busqueda b where b.usuario = :usuario)")
