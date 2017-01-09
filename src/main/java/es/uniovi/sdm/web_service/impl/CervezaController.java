@@ -94,7 +94,7 @@ public class CervezaController {
 
 		else {
 			Usuario usuario = usuarioService.findUsuario(busqueda.getUsuario().getLogin(),
-					busqueda.getUsuario().getLogin());
+					busqueda.getUsuario().getPassword());
 
 			if (usuario == null) {
 				throw ErrorFactory.getErrorResponse(Errors.USUARIO_NO_EXISTE);

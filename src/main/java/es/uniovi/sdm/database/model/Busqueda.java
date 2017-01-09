@@ -27,9 +27,9 @@ public class Busqueda {
 	@JoinColumn(name = "id_cerveza", referencedColumnName = "id")
 	private Cerveza cerveza;
 
-	@Temporal(TemporalType.TIME)
-	@Column(name="fecha_ultima_busqueda")
-	private Date fechaUltimaBusqueda;
+	@Column(name = "fechaultimabusqueda")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fecha_ultima_busqueda;
 
 	Busqueda() {
 
@@ -43,7 +43,7 @@ public class Busqueda {
 	public Busqueda(Usuario usuario, Cerveza cerveza, Date fecha) {
 		this(usuario, cerveza);
 
-		this.fechaUltimaBusqueda = fecha;
+		this.fecha_ultima_busqueda = fecha;
 	}
 
 	// ============================
@@ -58,12 +58,12 @@ public class Busqueda {
 		return cerveza;
 	}
 
-	public Date getFechaUltimaBusqueda() {
-		return fechaUltimaBusqueda;
+	public Date getFecha_ultima_busqueda() {
+		return fecha_ultima_busqueda;
 	}
 
-	public void setFechaUltimaBusqueda(Date fechaUltimaBusqueda) {
-		this.fechaUltimaBusqueda = fechaUltimaBusqueda;
+	public void setFecha_ultima_busqueda(Date fecha_ultima_busqueda) {
+		this.fecha_ultima_busqueda = fecha_ultima_busqueda;
 	}
 
 	// ============================
@@ -111,7 +111,7 @@ public class Busqueda {
 
 	@Override
 	public String toString() {
-		return "Busqueda [usuario=" + usuario + ", cerveza=" + cerveza + ", fechaUltimaBusqueda=" + fechaUltimaBusqueda
+		return "Busqueda [usuario=" + usuario + ", cerveza=" + cerveza + ", fecha_ultima_busqueda=" + fecha_ultima_busqueda
 				+ "]";
 	}
 
